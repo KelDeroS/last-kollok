@@ -15,6 +15,7 @@ public class RenameFile extends Command{
     {
         if (fileManager.getExists()) {
             if (fileManager.getLastFile().renameTo(newFile)) {
+                fileManager.getLastFile().delete();
                 fileManager.setLastFile(newFile);
                 return true;
             }
